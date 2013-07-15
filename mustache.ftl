@@ -8,6 +8,28 @@
 
 <#-- Functions -->
 
+<#function eval expression hash>
+    <#local expression = expression?trim />
+
+    <#if (expression?starts_with('&'))>
+        <#local name = expression?substring(1) />
+        <#local escape = false />
+    <#else>
+        <#local name = expression />
+        <#local escape = true />
+    </#if>
+
+    <#if (!hash[name]??)>
+        <#return "">
+    </#if>
+
+    <#local value = hash[name] />
+    <#if (escape)>
+        <#local value = value?html />
+    </#if>
+    <#return value>
+</#function>
+
 <#function processed template hash>
     <#local tokens1 = template?split('{{') />
     <#if (tokens1?size == 1)>
@@ -22,12 +44,7 @@
             <#stop "Invalid Mustache template">
         </#if>
 
-        <#local name = tokens2[0]?trim />
-        <#if (hash[name]??)>
-            <#local result = result + hash[name]?html />
-        </#if>
-
-        <#local result = result + tokens2[1] />
+        <#local result = result + eval(tokens2[0], hash) + tokens2[1] />
     </#list>
 
     <#return result>
