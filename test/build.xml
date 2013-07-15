@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="Pi FreeMarker test suite" default="test-suite">
+
+    <property name="freemarker.version" value="2.3.20" />
+    <property name="freemarker.dir" location="${user.home}/freemarker-${freemarker.version}" />
+    <property name="results.dir" location="${basedir}/results" />
+
+    <target name="test-suite" description="Runs the test suite" depends="-freemarker-task">
+        <mkdir dir="${results.dir}" />
+        <freemarker includes="test-suite.xml" templatedir="${basedir}/.." destdir="${results.dir}" template="test/test-suite.ftl" encoding="UTF-8" />
+    </target>
+
+    <target name="-freemarker-task" depends="-freemarker-download">
+        <taskdef name="freemarker" classname="freemarker.ext.ant.FreemarkerXmlTask" classpath="${freemarker.dir}/freemarker.jar" />
+    </target>
+
+    <target name="-freemarker-download" depends="-before-freemarker-download" unless="freemarker.available">
+        <mkdir dir="${freemarker.dir}" />
+        <get src="http://sourceforge.net/projects/freemarker/files/freemarker/${freemarker.version}/freemarker-${freemarker.version}.tar.gz" dest="${freemarker.dir}/freemarker.tar.gz" />
+        <gunzip src="${freemarker.dir}/freemarker.tar.gz" dest="${freemarker.dir}/freemarker.tar" />
+        <delete file="${freemarker.dir}/freemarker.tar.gz" />
+        <untar src="${freemarker.dir}/freemarker.tar" dest="${freemarker.dir}" />
+        <delete file="${freemarker.dir}/freemarker.tar" />
+    </target>
+
+    <target name="-before-freemarker-download">
+        <condition property="freemarker.available">
+            <available file="${freemarker.dir}/freemarker.jar" />
+        </condition>
+    </target>
+
+</project>
