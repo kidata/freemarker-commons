@@ -22,7 +22,7 @@
             <#stop "Invalid Mustache template">
         </#if>
 
-        <#local name = tokens2[0] />
+        <#local name = tokens2[0]?trim />
         <#if (hash[name]??)>
             <#local result = result + hash[name]?html />
         </#if>
