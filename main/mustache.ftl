@@ -11,6 +11,10 @@
 <#function eval expression hash>
     <#local expression = expression?trim />
 
+    <#if (expression?starts_with('!'))>
+        <#-- Comment -->
+        <#return "">
+    </#if>
     <#if (expression?starts_with('&'))>
         <#local name = expression?substring(1) />
         <#local escape = false />

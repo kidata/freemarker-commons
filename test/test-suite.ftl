@@ -48,6 +48,7 @@
 } />
 
 <@assert (mustache.eval('x', hash) == '') "Variable not found" />
+<@assert (mustache.eval('!abc', hash) == '') "Comment" />
 <@assert (mustache.eval('abc', hash) == '&lt;p&gt;') "Escaped variable" />
 <@assert (mustache.eval('&abc', hash) == '<p>') "Unescaped variable" />
 
