@@ -42,6 +42,28 @@
     <#return string?number />
 </#function>
 
+<#function prefixTrim string chars=" \t\n\r">
+    <#list 0..(string?length - 1) as i>
+        <#if (!contains(chars, string[i]))>
+            <#return string?substring(i)>
+        </#if>
+    </#list>
+    <#return "">
+</#function>
+
+<#function suffixTrim string chars=" \t\n\r">
+    <#list (string?length - 1)..0 as i>
+        <#if (!contains(chars, string[i]))>
+            <#return string?substring(0, i + 1)>
+        </#if>
+    </#list>
+    <#return "">
+</#function>
+
+<#function trim string chars=" \t\n\r">
+    <#return prefixTrim(suffixTrim(string, chars), chars)>
+</#function>
+
 <#function repeat string count>
     <#local result = "" />
     <#if (count > 0)>

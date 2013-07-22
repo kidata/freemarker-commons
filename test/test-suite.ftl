@@ -39,6 +39,17 @@
     </#if>
 </#macro>
 
+<h2>Strings</h2>
+
+<#import "../main/strings.ftl" as strings>
+
+<@assert (strings.prefixTrim('abc') == 'abc') "Prefix trimmed string without trimmable characters" />
+<@assert (strings.prefixTrim(' \tabc') == 'abc') "Prefix trimmed string with trimmable characters '"+strings.prefixTrim(' \tabc')+"'" />
+<@assert (strings.suffixTrim('abc') == 'abc') "Suffix trimmed string without trimmable characters" />
+<@assert (strings.suffixTrim('abc \t') == 'abc') "Suffix trimmed string with trimmable characters" />
+<@assert (strings.trim('abc') == 'abc') "Trimmed string without trimmable characters" />
+<@assert (strings.trim(' \tabc \t') == 'abc') "Trimmed string with trimmable characters" />
+
 <h2>Mustache</h2>
 
 <#import "../main/mustache.ftl" as mustache>
