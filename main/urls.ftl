@@ -6,8 +6,10 @@
   - Author: Laurent Pireyn
   -->
 
+<#import "strings.ftl" as s>
+
 <#-- Functions -->
 
 <#function toUrl string>
-    <#return string?trim?lower_case?replace('[- \\t\\n\\r,;.?!_\\(\\)\\[\\]\\{\\}]+', '-', 'r')>
+    <#return s.trim(string?lower_case?replace('[- \\t\\n\\r,;.?!_\\(\\)\\[\\]\\{\\}]+', '-', 'r'), '-')>
 </#function>

@@ -50,6 +50,12 @@
 <@assert (strings.trim('abc') == 'abc') "Trimmed string without trimmable characters" />
 <@assert (strings.trim(' \tabc \t') == 'abc') "Trimmed string with trimmable characters" />
 
+<h2>URLs</h2>
+
+<#import "../main/urls.ftl" as urls>
+
+<@assert (urls.toUrl('This is a Test! Oh really???') == 'this-is-a-test-oh-really') "String converted to URL" />
+
 <h2>Mustache</h2>
 
 <#import "../main/mustache.ftl" as mustache>
