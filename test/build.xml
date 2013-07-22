@@ -11,6 +11,10 @@
         <freemarker includes="test-suite.xml" templatedir="${basedir}/.." destdir="${results.dir}" template="test/test-suite.ftl" encoding="UTF-8" />
     </target>
 
+    <target name="clean" description="Removes the test results">
+        <delete dir="${results.dir}" />
+    </target>
+
     <target name="-freemarker-task" depends="-freemarker-download">
         <taskdef name="freemarker" classname="freemarker.ext.ant.FreemarkerXmlTask" classpath="${freemarker.dir}/freemarker.jar" />
     </target>
