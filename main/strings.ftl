@@ -16,6 +16,10 @@
     <#return isEmpty(string?trim)>
 </#function>
 
+<#function contains string part>
+    <#return string?index_of(part) != -1>
+</#function>
+
 <#function defaultIfEmpty string defaultString>
     <#if (isEmpty(string))>
         <#return defaultString />
