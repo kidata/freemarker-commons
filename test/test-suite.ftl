@@ -49,6 +49,10 @@
 <@assert (strings.suffixTrim('abc \t') == 'abc') "Suffix trimmed string with trimmable characters" />
 <@assert (strings.trim('abc') == 'abc') "Trimmed string without trimmable characters" />
 <@assert (strings.trim(' \tabc \t') == 'abc') "Trimmed string with trimmable characters" />
+<@assert (strings.pluralized(1, 'dog') == '1 dog') "Pluralized word with count of 1" />
+<@assert (strings.pluralized(0, 'dog') == '0 dogs') "Pluralized word with count of 0" />
+<@assert (strings.pluralized(2, 'dog') == '2 dogs') "Pluralized word with count of 2" />
+<@assert (strings.pluralized(2, 'mouse', 'mice') == '2 mice') "Pluralized word with count of 2 and specific plural" />
 
 <h2>URLs</h2>
 
