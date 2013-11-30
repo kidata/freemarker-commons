@@ -6,6 +6,8 @@
   - Author: Laurent Pireyn
   -->
 
+<#import "core.ftl" as c>
+
 <#-- Functions -->
 
 <#function isEmpty string>
@@ -62,6 +64,14 @@
 
 <#function trim string chars=" \t\n\r">
     <#return prefixTrim(suffixTrim(string, chars), chars)>
+</#function>
+
+<#function padded strings prefix="" suffix="">
+    <#local result = [] />
+    <#list c.toSequence(strings) as string>
+        <#local result = result + [prefix + string + suffix] />
+    </#list>
+    <#return result>
 </#function>
 
 <#function repeat string count>
