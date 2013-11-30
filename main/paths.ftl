@@ -10,6 +10,17 @@
 
 <#-- Functions -->
 
+<#function parent path>
+    <#if (s.isEmpty(path))>
+        <#return "">
+    </#if>
+    <#local index = path?last_index_of('/') />
+    <#if (index == -1)>
+        <#return "">
+    </#if>
+    <#return path?substring(0, index)>
+</#function>
+
 <#function fileName path>
     <#if (s.isEmpty(path))>
         <#return "">
