@@ -45,20 +45,26 @@
 </#function>
 
 <#function prefixTrim string chars=" \t\n\r">
-    <#list 0..(string?length - 1) as i>
-        <#if (!contains(chars, string[i]))>
-            <#return string?substring(i)>
-        </#if>
-    </#list>
+    <#local length = string?length />
+    <#if (length > 0)>
+        <#list 0..(length - 1) as i>
+            <#if (!contains(chars, string[i]))>
+                <#return string?substring(i)>
+            </#if>
+        </#list>
+    </#if>
     <#return "">
 </#function>
 
 <#function suffixTrim string chars=" \t\n\r">
-    <#list (string?length - 1)..0 as i>
-        <#if (!contains(chars, string[i]))>
-            <#return string?substring(0, i + 1)>
-        </#if>
-    </#list>
+    <#local length = string?length />
+    <#if (length > 0)>
+        <#list (string?length - 1)..0 as i>
+            <#if (!contains(chars, string[i]))>
+                <#return string?substring(0, i + 1)>
+            </#if>
+        </#list>
+    </#if>
     <#return "">
 </#function>
 
