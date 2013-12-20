@@ -51,3 +51,18 @@
     </#if>
     <#return [value]>
 </#function>
+
+<#function subHash hash prefix stripPrefix=false>
+    <#local result = {} />
+    <#list hash?keys as key>
+        <#if (key?starts_with(prefix))>
+            <#if (stripPrefix)>
+                <#local newKey = key?substring(prefix?length) />
+            <#else>
+                <#local newKey = key />
+            </#if>
+            <#local result = result + {newKey: hash[key]} />
+        </#if>
+    </#list>
+    <#return result>
+</#function>
