@@ -16,12 +16,24 @@
     <#return false>
 </#function>
 
+<#function identity value>
+    <#return value>
+</#function>
+
 <#function filter seq predicate>
     <#local result = [] />
     <#list seq as elem>
         <#if (predicate(elem))>
             <#local result = result + [elem] />
         </#if>
+    </#list>
+    <#return result>
+</#function>
+
+<#function map seq function>
+    <#local result = [] />
+    <#list seq as elem>
+        <#local result = result + [function(elem)] />
     </#list>
     <#return result>
 </#function>
