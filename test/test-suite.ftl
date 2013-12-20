@@ -39,6 +39,15 @@
     </#if>
 </#macro>
 
+<h2>Core</h2>
+
+<#import "../main/core.ftl" as core>
+
+<#assign result = core.subHash({'a.b': 1, 'x.y': 2, 'a': 3}, 'a.', false) />
+<@assert (result?keys?size == 1 && result['a.b']?? && result['a.b'] == 1) "Sub hash with untouched prefix" />
+<#assign result = core.subHash({'a.b': 1, 'x.y': 2, 'a': 3}, 'a.', true) />
+<@assert (result?keys?size == 1 && result['b']?? && result['b'] == 1) "Sub hash with trimmed prefix" />
+
 <h2>Strings</h2>
 
 <#import "../main/strings.ftl" as strings>
