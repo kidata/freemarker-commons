@@ -77,6 +77,8 @@
 <@assert (result?size == 3) "Filter with true predicate" />
 <#assign result = fp.filter([1, 2, 3], fp.falsePredicate) />
 <@assert (result?size == 0) "Filter with false predicate" />
+<#assign result = fp.map([1, 2, 3], fp.identity) />
+<@assert (result?size == 3 && result[0] == 1) "Map with identity" />
 
 <h2>Mustache</h2>
 
