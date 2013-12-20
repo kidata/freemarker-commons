@@ -69,6 +69,15 @@
 
 <@assert (urls.toUrl('This is a Test! Oh really???') == 'this-is-a-test-oh-really') "String converted to URL" />
 
+<h2>FP</h2>
+
+<#import "../main/fp.ftl" as fp>
+
+<#assign result = fp.filter([1, 2, 3], fp.truePredicate) />
+<@assert (result?size == 3) "Filter with true predicate" />
+<#assign result = fp.filter([1, 2, 3], fp.falsePredicate) />
+<@assert (result?size == 0) "Filter with false predicate" />
+
 <h2>Mustache</h2>
 
 <#import "../main/mustache.ftl" as mustache>
