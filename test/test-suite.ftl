@@ -79,6 +79,8 @@
 <@assert (result?size == 0) "Filter with false predicate" />
 <#assign result = fp.map([1, 2, 3], fp.identity) />
 <@assert (result?size == 3 && result[0] == 1) "Map with identity" />
+<@assert (fp.fold([1, 2, 3], fp.add, 0) == 6) "Fold with add" />
+<@assert (fp.fold([1, 2, 3], fp.multiply, 1) == 6) "Fold with multiply" />
 
 <h2>Mustache</h2>
 
