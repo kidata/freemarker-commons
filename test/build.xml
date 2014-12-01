@@ -3,7 +3,7 @@
 <project name="FreeMarker Commons test suite" default="test-suite">
 
     <property name="freemarker.version" value="2.3.21" />
-    <property name="freemarker.dir" location="${user.home}/freemarker-${freemarker.version}" />
+    <property name="freemarker.dir" location="${basedir}/freemarker-${freemarker.version}" />
     <property name="results.dir" location="${basedir}/results" />
 
     <target name="test-suite" description="Runs the test suite" depends="-freemarker-task">
