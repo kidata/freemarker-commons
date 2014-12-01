@@ -3,7 +3,7 @@
 <html>
 
 <head>
-    <title>Pi FreeMarker test suite</title>
+    <title>FreeMarker Commons test suite</title>
     <style>
         body {
             font-family: sans-serif;
@@ -29,7 +29,7 @@
 
 <body>
 
-<h1>Pi FreeMarker test suite</h1>
+<h1>FreeMarker Commons test suite</h1>
 
 <#macro assert expression message="">
     <#if (expression)>

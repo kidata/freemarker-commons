@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project name="Pi FreeMarker test suite" default="test-suite">
+<project name="FreeMarker Commons test suite" default="test-suite">
 
     <property name="freemarker.version" value="2.3.20" />
     <property name="freemarker.dir" location="${user.home}/freemarker-${freemarker.version}" />
