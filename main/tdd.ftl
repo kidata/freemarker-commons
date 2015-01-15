@@ -13,7 +13,7 @@
 <#-- Constants -->
 
 <#assign LEVEL_INDENT = 4 />
-<#assign LEVEL_INDENT_STRING = s.repeat(' ', LEVEL_INDENT) />
+<#assign LEVEL_INDENT_STRING = s.repeat(" ", LEVEL_INDENT) />
 
 <#-- Macros -->
 

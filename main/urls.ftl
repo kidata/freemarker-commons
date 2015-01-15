@@ -11,5 +11,5 @@
 <#-- Functions -->
 
 <#function toUrl string>
-    <#return s.trim(string?lower_case?replace('[- \\t\\n\\r,;.?!_\\(\\)\\[\\]\\{\\}]+', '-', 'r'), '-')>
+    <#return s.trim(string?lower_case?replace("[- \\t\\n\\r,;.?!_\\(\\)\\[\\]\\{\\}]+", "-", "r"), "-")>
 </#function>

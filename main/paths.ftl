@@ -14,7 +14,7 @@
     <#if (s.isEmpty(path))>
         <#return "">
     </#if>
-    <#local index = path?last_index_of('/') />
+    <#local index = path?last_index_of("/") />
     <#if (index == -1)>
         <#return "">
     </#if>
@@ -25,7 +25,7 @@
     <#if (s.isEmpty(path))>
         <#return "">
     </#if>
-    <#local index = path?last_index_of('/') />
+    <#local index = path?last_index_of("/") />
     <#if (index == -1)>
         <#return path>
     </#if>
@@ -33,7 +33,7 @@
 </#function>
 
 <#function baseName fileName>
-    <#local index = fileName?last_index_of('.') />
+    <#local index = fileName?last_index_of(".") />
     <#if (index == -1)>
         <#-- No extension -->
         <#return fileName>
@@ -42,7 +42,7 @@
 </#function>
 
 <#function extension fileName>
-    <#local index = fileName?last_index_of('.') />
+    <#local index = fileName?last_index_of(".") />
     <#if (index == -1)>
         <#-- No extension -->
         <#return "">
@@ -59,11 +59,11 @@
 
 <#function split path>
     <#-- Trim leading / -->
-    <#if (path?starts_with('/'))>
+    <#if (path?starts_with("/"))>
         <#local path = path?substring(1) />
     </#if>
     <#-- Trim trailing / -->
-    <#if (path?ends_with('/'))>
+    <#if (path?ends_with("/"))>
         <#local path = path?substring(0, path?length - 1) />
     </#if>
     <#-- Empty path results in empty sequence -->
@@ -71,5 +71,5 @@
         <#return []>
     </#if>
     <#-- Split path -->
-    <#return path?split('/')>
+    <#return path?split("/")>
 </#function>

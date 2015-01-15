@@ -103,7 +103,7 @@
 
 <#function pluralized count singular plural=singular + "s">
     <#if (count == 1)>
-        <#return count + ' ' + singular>
+        <#return count + " " + singular>
     </#if>
-    <#return count + ' ' + plural>
+    <#return count + " " + plural>
 </#function>
