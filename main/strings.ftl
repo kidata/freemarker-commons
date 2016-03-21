@@ -72,6 +72,10 @@
     <#return prefixTrim(suffixTrim(string, chars), chars)>
 </#function>
 
+<#function truncate string length>
+    <#return string?right_pad(length, " ")?substring(0, length-1)?trim />
+</#function>
+
 <#function padded strings prefix="" suffix="">
     <#local result = [] />
     <#list c.toSequence(strings) as string>
