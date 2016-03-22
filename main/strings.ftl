@@ -73,7 +73,11 @@
 </#function>
 
 <#function truncate string length>
-    <#return string?right_pad(length, " ")?substring(0, length-1)?trim />
+    <#if (string?length < length)>
+        <#return string />
+    <#else>
+        <#return string?substring(0, length-1) />
+    </#if>
 </#function>
 
 <#function padded strings prefix="" suffix="">
